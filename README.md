@@ -86,3 +86,12 @@ func main() {
 	 }
 }
 ```
+### //For reading request parameter from request body for a POST request (r)
+```
+employee := Employee{}
+json.NewDecoder(r.Body).Decode(&employee)
+OR
+var result map[string]interface{}
+data, err := ioutil.ReadAll(r.Body)
+json.Unmarshal([]byte(data), &result)
+```
