@@ -95,3 +95,13 @@ var result map[string]interface{}
 data, err := ioutil.ReadAll(r.Body)
 json.Unmarshal([]byte(data), &result)
 ```
+### Adding elements to slice
+```
+myslice := []string{"a","'","test2"}
+//[a ' test2]
+
+myslice = append(myslice[:3],"b")
+//[a ' test2 b]
+myslice = append(myslice[:1], myslice[2:]...)
+//[a test2 b]
+```
